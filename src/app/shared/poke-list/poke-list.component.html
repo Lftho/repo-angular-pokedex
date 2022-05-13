@@ -1,0 +1,44 @@
+<!-- Search -->
+<app-poke-search (emmitSearch)="getSearch($event)"></app-poke-search>
+
+<section class="lists">
+  <ng-template ngFor let-pokemon [ngForOf]="getAllPokemons">
+    <a [routerLink]="['details', pokemon.detail.id]" class="pokemon" *ngIf="pokemon.detail">
+      <section class="pokemon__status">
+        <h2>
+          {{pokemon.name}}
+          {{pokemon.detail.id}}
+        </h2>
+
+        <ul>
+          <li *ngFor="let data of pokemon.detail.types">
+            {{ data.type.name }}
+          </li>
+        </ul>
+      </section>
+      <section class="pokemon__image">
+        <img [src]="pokemon.detail.sprites.other.dream_world.front_default" [alt]="pokemon.name">
+      </section>
+    </a>
+  </ng-template>
+
+
+</section>
+<div id="paginate">
+  <div class="controls btn__secondary">
+    <div class="first">&#171;</div>
+    <div class="prev">
+      < </div>
+        <div class="numbers">
+          <div>1</div>
+        </div>
+        <div class="next">></div>
+        <div class="last">&#187;</div>
+    </div>
+  </div>
+
+  <!-- <section>
+  <button class="btn btn__secondary" (click)="pokemonPlus()">
+    Mais
+  </button>
+</section> -->

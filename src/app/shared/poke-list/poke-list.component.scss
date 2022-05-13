@@ -1,0 +1,126 @@
+@import '../../../config-scss/rem-calc.scss';
+
+$padding: rem-calc(20);
+:host {
+  .lists{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: calc(5% - .5rem);
+    cursor: pointer;
+
+    .pokemon {
+      position: relative;
+      display: flex;
+
+      width: calc(55% - 2.5rem);
+      height: rem-calc(187 - 30);
+      padding: $padding;
+
+      margin-top: calc(5% - .5rem);
+
+      background-color: var(--white);
+      border-radius: rem-calc(10);
+
+      text-decoration: none;
+      color: var(--primary-color);
+
+      &__status {
+        h2 {
+          font-weight: bold;
+          font-size: rem-calc(22);
+          font-style: italic;
+          text-transform: capitalize;
+          margin-bottom: rem-calc(10);
+        }
+
+        ul {
+          display: flex;
+          flex-direction: column;
+
+          li {
+            font-size: rem-calc(12);
+            background-color: var(--gray);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            border-radius: rem-calc(50);
+
+            width: rem-calc(60);
+            margin-bottom: rem-calc(5);
+          }
+        }
+      }
+
+      &__image {
+        position: absolute;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        height: rem-calc(90);
+        width: rem-calc(110);
+
+        right: $padding;
+        bottom: $padding;
+
+        background: url('../../../assets/background-list/bg-list-pokemon.svg') no-repeat ;
+
+        img {
+          width: rem-calc(60); /* necessário diminuir */
+        }
+      }
+    }
+  }
+
+
+}
+
+
+#paginate {
+  width: 100%;
+  margin: 32px auto;
+}
+
+#paginate .item {
+  border-bottom: 1px solid hsl(32, 98%, 12%);
+  padding: 16px 32px;
+}
+
+
+
+#paginate .controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 8px;
+}
+
+#paginate .controls div {
+  cursor: pointer;
+
+  // border: 1px solid #eee;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 14;
+
+}
+
+#paginate .controls div:not(.numbers),
+#paginate .controls div.numbers div{
+  width: 40px;
+  height: 40px;
+}
+
+#paginate .controls div.numbers div:hover,
+#paginate .controls div.numbers div.active {
+  color: var(--secondary);
+}
+
