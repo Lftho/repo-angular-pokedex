@@ -30,12 +30,19 @@ export class PokeApiService {
           });
         })
       )
+
+    console.log(data)
     return data;
   }
 
 
+  /**
+   * @param url
+   * @returns
+   * Pegando todos pokemons e passando url
+   */
   public apiGetPokemons(url: string): Observable<any> {
     return this.http.get<any>(url).pipe(
-      map(res => res))
+      map(res => res));
   }
 }
