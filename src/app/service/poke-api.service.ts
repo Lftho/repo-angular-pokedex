@@ -9,16 +9,18 @@ import { map, tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class PokeApiService {
-  pageStart = 1;
-  pageFinish = 15;
+  // pageStart = 1;
+  // pageFinish = 15;
   // @Output() pageChange: EventEmitter<number> = new EventEmitter<any>()
 
-  private readonly url: string = `${pokeAPi.api}/?offset=set${this.pageStart}&limit=${this.pageFinish}`;
+  // private readonly url: string = `${pokeAPi.api}/?offset=set${this.pageStart}&limit=`;
 
   constructor(private http: HttpClient) { }
 
-  get apiListAllPokemons(): Observable<any> {
-    const data = this.http.get<any>(this.url)
+  public apiListAllPokemons(pageno: number): Observable<any> {
+    const data = this.http.get<any>(
+      `${pokeAPi.api}/?offset=${pageno}&limit=6`
+    )
       .pipe(
         tap(res => res),
         tap(res => {
@@ -31,7 +33,6 @@ export class PokeApiService {
         })
       )
 
-    console.log(data)
     return data;
   }
 

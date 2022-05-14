@@ -16,4 +16,7 @@
   <li>Rxjs</li>
   <li>Angular</li>
   <li>Lazy-loading</li>
+  <li>Directive - paginação</li>
 </ol>
+
+<p>Desenvolvendo directive para manipulação de páginas, uma nova solução diante do problema que tentei resolver de 'n' maneiras. É essa foi seguindo a lógica baseado na documentação que a '@Directive' foi realizado com sucesso.</p>

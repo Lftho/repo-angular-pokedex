@@ -26,19 +26,23 @@
 </section>
 <div id="paginate">
   <div class="controls btn__secondary">
-    <div class="first">&#171;</div>
+    <!-- <div class="first">&#171;</div> -->
+    <div class="first">
+      <a appPagination (click)="appPagination.onFirst()">first</a>
+    </div>
     <div class="prev">
-      < </div>
-        <div class="numbers">
-          <div>1</div>
-        </div>
-        <div class="next">></div>
-        <div class="last">&#187;</div>
+      <a appPagination (click)="appPagination.onPrevius()">prev</a>
+    </div>
+    <div class="numbers">
+      <input #appPagination="appPagination" appPagination type="number" min="1" max="5" value="1" [totalPages]="5"
+        (onChangeEventEmitter)="onPageChange($event)" />
+    </div>
+    <div class="next">
+      <a appPagination (click)="appPagination.onNext()">next</a>
+    </div>
+    <!-- <div class="last">&#187;</div> -->
+    <div class="last">
+      <a appPagination (click)="appPagination.onLast()">last</a>
     </div>
   </div>
-
-  <!-- <section>
-  <button class="btn btn__secondary" (click)="pokemonPlus()">
-    Mais
-  </button>
-</section> -->
+</div>
